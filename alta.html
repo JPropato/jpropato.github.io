@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="main-header">
+
+        <input type="checkbox" id="menu">
+
+        <nav class="nav-bar">
+            <ul class="nav-bar__nav-list">
+                <li class="nav-bar__nav-item">
+                    <a class="nav-bar__nav-link" href="index.html">Inicio</a>
+                </li>
+                <li class="nav-bar__nav-item">
+                    <a class="nav-bar__nav-link" href="alta.html">Alta</a>
+                </li>
+                <li class="nav-bar__nav-item">
+                    <a class="nav-bar__nav-link" href="contacto.html">Contacto</a>
+                </li>
+                <li class="nav-bar__nav-item">
+                    <a class="nav-bar__nav-link" href="nosotros.html">Nosotros</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <div class="search-bar__logo-container">
+                <img class="search-bar__logo-container--logo" src="img/logo/logo-w.png" alt=""> 
+            </div>
+            <form class="search-bar__form-container">
+                <label class="search-bar__form-label" for="busqueda"></label>
+                <input class="search-bar__form-search" id="busqueda" type="search">
+                <input class="search-bar__form-submit" type="submit" value="Buscar">
+            </form>
+            <div class="search-bar__carrito-container">
+            </div>
+            <div class="menu-toggle">
+                <label class="menu-toggle__label" for="menu">
+                    <span class="menu-toggle__pan-arriba"></span>
+                    <span class="menu-toggle__medallon"></span>
+                    <span class="menu-toggle__pan-abajo"></span>
+                </label>
+            </div>
+        </div>
+    </header>
+    <main>
+        <form class="form__alta" action="alta.php">
+
+            <div class="form__alta--title">Alta de producto</div>
+
+            <div class="form__alta__product">
+                <div class="form__alta__product--container">
+                    <label for="nombre">Nombre</label>
+                    <input id="nombre" name="nombre" placeholder="Nombre del Producto" type="text" required>
+                </div>
+    
+                <div class="form__alta__product--container">
+                    <label for="precio">Precio</label>
+                    <input id="precio" name="precio" placeholder="Precio" type="number" required >
+                </div>
+    
+                <div class="form__alta__product--container">
+                    <label for="stock">Stock:</label>
+                    <input type="number" id="stock" name="stock" max="100" required>
+                </div>
+    
+                <div class="form__alta__product--container">
+                    <label for="marca">Marca</label>
+                    <select id="marca" name="marca" required>
+                        <option value="">Seleccioná una opción</option>
+                        <option value="2">Apple</option>
+                        <option value="6">Samsung</option>
+                        <option value="8">TCL</option>
+                        <option value="10">LG</option>
+                        <option value="12">Motorola</option>
+                        <option value="14">ZTE</option>
+                    </select>
+                </div>
+    
+                <div class="form__alta__product--container">
+                    <label for="categoria">Categoría</label>
+                    <br>
+                    <select id="categoria" name="categoria" required>
+                        <option value="">Seleccioná una categoría</option>
+                        <optgroup label="Gama" required>
+                            <option selected value="1">Premium</option>
+                            <option value="3">Media</option>
+                            <option value="5">Baja</option>
+                        </optgroup>
+                    </select>
+                </div>
+    
+                <div class="form__alta__product--container">
+                    <label for="imagen-producto">Imagen del producto</label>
+                    <input type="file" required>
+                </div>
+    
+                <div class="form__alta__product--container">
+                    <label for="detalles-producto">Detalles</label>
+                    <br>
+                    <textarea id="detalles-producto" name="detalles-producto" placeholder="Ingrese detalles del producto" required></textarea>
+                </div>
+
+                <div class="form__alta__product--container--garantia">
+                    <legend>Garantia</legend>
+                    <div class="form__alta__product--container--garantia--box">
+                        <div class="checkmark">
+                            <input type="radio" value="6" id="garantia1" name="garantia" checked>
+                            <label for="garantia1">6 meses</label> 
+                        </div>
+            
+                        <div class="checkmark">
+                            <input type="radio" value="12" id="garantia2" name="garantia">
+                            <label for="garantia2">12 meses</label> 
+                        </div>
+            
+                        <div class="checkmark">
+                            <input type="radio" value="18" id="garantia3" name="garantia">
+                            <label for="garantia3">18 meses</label>
+                        </div> 
+            
+                        <div class="checkmark">
+                            <input type="radio" value="24" id="garantia4" name="garantia">
+                            <label for="garantia4">24 meses</label>
+                        </div> 
+            
+                        <div class="checkmark">
+                            <input type="radio" value="36" id="garantia5" name="garantia">
+                            <label class="" for="garantia5">36 meses</label>
+                        </div> 
+                    </div>
+                </div>
+    
+                <div class="form__alta__product--container--envio">
+                    <input type="checkbox" id="envio" name="envio" value="si">
+                    <label for="envio">Envío sin cargo</label>
+                </div>
+    
+                <div class="form__alta__product--container--submit">
+                    <input class="form__alta__product--container--submit__alta" type="submit" value="Alta">
+                    <input class="form__alta__product--container--submit__reset" type="reset" value="Restablecer el Formulario">
+                </div>
+            </div>
+        </form>
+    </main>
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="footer__content--logo">
+                <img src="img/logo/logo-b-b-b.png" alt="">
+            </div>
+            <div class="footer__content--follow-us">
+                <section class="social--media">
+                    <h3>Encontranos en las redes</h3>
+                    <div class="social--media__button">
+                        <a class="social--media__button__item facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="social--media__button__item twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class="social--media__button__item linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a class="social--media__button__item youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class="social--media__button__item instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer__content--copyright">
+                <p>Copyright® Connecticus Inc LTD - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

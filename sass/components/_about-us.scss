@@ -1,0 +1,73 @@
+.aboutus{
+    text-align: center;
+    margin-bottom: 40px;
+
+        &--logo{
+            text-align: center;
+            padding: 15px;
+
+                h3{
+                    font-size: 2em;
+                    margin-bottom: 15px ;
+                }
+
+                p{
+                    width: 65%;
+                    margin: auto;
+                    height: 250px;
+                    overflow: auto;
+                    font-size: 1.3em;
+                    box-shadow: 20px 20px rgba(0,0,0,.15);
+                    transition: all .4s ease;
+                    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+                    border: 0.5px solid #00457b;
+                    padding: 15px;
+
+                        &:hover{
+                            border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+                            box-shadow: 10px 10px rgba(0,0,0,.25);
+                        }
+                }
+        }
+
+        &--article{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-top: 100px;
+
+                &__container{
+                    width: 250px;
+                    height: 250px;
+                    min-width: 235px;
+                    box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);
+                    transition: all .2s;
+
+                        &:hover{
+                            transform: scale(1.03);
+                            box-shadow: 5px 5px 10px 5px rgba(50, 50, 50, 0.2);
+                        }
+
+                            img{
+                                height: 30px;
+                                margin-top: 10px;
+                            }
+
+                            h4{
+                                font-size: 1.8em;
+                            }
+
+                            p{
+                                padding: 15px;
+                                font-size: 1.1em;
+                            }
+                }
+        }
+
+        @media(max-width: 768px){
+            &{
+                margin-top: 215px;
+            }
+        }
+}
