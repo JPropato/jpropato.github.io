@@ -190,11 +190,10 @@ main {
 }
 .form__alta--title {
   text-align: center;
-  font-size: 2em;
+  font-size: 2.2em;
   font-weight: 500;
   position: relative;
   margin-bottom: 15px;
-  text-transform: uppercase;
 }
 .form__alta__product {
   display: flex;
@@ -210,11 +209,12 @@ main {
   margin-bottom: 15px;
 }
 .form__alta__product--container label {
+  color: gray;
   margin-top: 15px;
   margin-bottom: 10px;
   margin-left: 50px;
   display: block;
-  font-weight: 500;
+  font-weight: lighter;
   margin-bottom: 5px;
   font-size: 1.15em;
   text-align: left;
@@ -563,11 +563,37 @@ FORMULARIO DE CONTACTO
 }
 
 #menu:checked + .nav-bar {
-  display: block;
+  opacity: 100;
+  transition: opacity 0.3s linear 0.05s;
+  z-index: 500;
 }
 
 #menu:checked ~ .search-bar .menu-toggle__label {
   background-color: transparent;
+}
+
+#menu:checked ~ .search-bar .menu-toggle__pan-arriba {
+  top: -0.1em;
+  transition: 0.8s ease;
+  transform: rotate(315deg);
+}
+
+#menu:not(:checked) ~ .search-bar .menu-toggle__pan-arriba {
+  transition: 1s ease;
+}
+
+#menu:checked ~ .search-bar .menu-toggle__medallon {
+  display: none;
+}
+
+#menu:checked ~ .search-bar .menu-toggle__pan-abajo {
+  bottom: -0.1em;
+  transition: 0.8s ease;
+  transform: rotate(45deg);
+}
+
+#menu:not(:checked) ~ .search-bar .menu-toggle__pan-abajo {
+  transition: 1s ease;
 }
 
 /*********************************
@@ -666,6 +692,7 @@ SEARCH BAR
   height: 45px;
 }
 .search-bar__carrito-container {
+  cursor: pointer;
   flex: 0 0 3em;
   height: 45px;
   align-self: center;
@@ -692,7 +719,7 @@ SEARCH BAR
 }
 .menu-toggle__pan-arriba, .menu-toggle__medallon, .menu-toggle__pan-abajo {
   display: block;
-  background-color: #333;
+  background-color: #262626;
   height: 0.2em;
   position: absolute;
   left: 0.5em;
@@ -720,13 +747,14 @@ SEARCH BAR
   }
 
   .nav-bar {
-    display: none;
+    opacity: 0;
+    transition: 0.3s ease;
     background-color: #00457b;
     border-top: 0.1px solid black;
     position: fixed;
     top: 160px;
     width: 100%;
-    z-index: 10;
+    z-index: -5000;
   }
   .nav-bar__nav-list {
     flex-direction: column;
