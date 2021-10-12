@@ -567,7 +567,7 @@ FORMULARIO DE CONTACTO
 }
 
 #menu:checked ~ .search-bar .menu-toggle__label {
-  background-color: yellow;
+  background-color: transparent;
 }
 
 /*********************************
@@ -594,7 +594,6 @@ FORMULARIO DE CONTACTO
   padding: 1em 2em;
   text-decoration: none;
 }
-
 .nav-bar__nav-link::after {
   content: "";
   height: 3px;
@@ -605,7 +604,6 @@ FORMULARIO DE CONTACTO
   bottom: 0;
   transition: 0.5s;
 }
-
 .nav-bar__nav-link:hover:after {
   width: 100%;
 }
@@ -730,22 +728,28 @@ SEARCH BAR
     width: 100%;
     z-index: 10;
   }
-
   .nav-bar__nav-list {
     flex-direction: column;
   }
-
   .nav-bar__nav-item {
     width: 100%;
     text-align: center;
     margin: auto;
   }
-
   .nav-bar__nav-link {
     color: white;
     font-weight: normal;
   }
+  .nav-bar__nav-link::after {
+    background: #ffffff;
+  }
 
+  .search-bar {
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    z-index: 1;
+  }
   .search-bar__logo-container {
     position: fixed;
     width: 100%;
@@ -754,28 +758,18 @@ SEARCH BAR
     top: -15px;
     background-color: #00457b;
   }
-
   .search-bar__form-container {
     padding-right: 0;
     padding-left: 0;
   }
-
   .search-bar__form-search {
     border-radius: 10px;
   }
-
   .search-bar__form-submit {
     font-size: 14px;
     margin-left: 30px;
     width: 80px;
     padding: 0;
-  }
-
-  .search-bar {
-    position: fixed;
-    top: 70px;
-    width: 100%;
-    z-index: 1;
   }
 }
 footer {
