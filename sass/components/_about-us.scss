@@ -68,6 +68,14 @@
         @media(max-width: 768px){
             &{
                 margin-top: 215px;
+                max-width: 100%;
+
+                &--logo{
+
+                        img{
+                            max-width: 70%;
+                        }
+                }
             }
         }
 }

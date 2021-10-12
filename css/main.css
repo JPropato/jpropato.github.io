@@ -547,6 +547,10 @@ FORMULARIO DE CONTACTO
 @media (max-width: 768px) {
   .aboutus {
     margin-top: 215px;
+    max-width: 100%;
+  }
+  .aboutus--logo img {
+    max-width: 70%;
   }
 }
 
