@@ -34,17 +34,19 @@ function Card (header, price, image){
         card.classList.add('card')
         card.href = '#'
 
+        // "TRUQUITO" para el event listener
         var that = this
 
-        card.addEventListener('click', function(){
+        card.addEventListener('click', function(ev){
             ev.preventDefault()
             console.log(this)
             this.classList.toggle('card--seleccionada')
 
+
             // INICIO DE CHINO AVANZADO
             var nuevoItemCarrito = document.createElement('div')
             nuevoItemCarrito.classList.add('carrito__item')
-            nuevoItemCarrito.innerHTML = that.heading /*THAT?*/
+            nuevoItemCarrito.innerHTML = that.header /*THAT?*/
             console.log(nuevoItemCarrito)
             
             // elemSectionCarrito: variable global
