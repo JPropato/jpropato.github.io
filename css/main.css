@@ -65,6 +65,7 @@ body {
 body {
   margin: auto;
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 main {
@@ -902,6 +903,7 @@ SEARCH BAR
 footer {
   width: 100%;
   background: #d7ebf9;
+  margin-top: 65vh;
 }
 
 .footer__content {
