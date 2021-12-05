@@ -1,3 +1,4 @@
+/*
 //Array donde se enviarán las entradas del Formulario
 let productos = []
 
@@ -61,7 +62,9 @@ function validar (valor, validador, index){
 //Recorro cada input para que cuando se este escribiendo, ejecute la funcion validar()
 inputsAlta.forEach((input,index) => {
     input.addEventListener('input', () => {
-        validar(input.value, regExpValidar[index], index)
+        if(input.type != 'checkbox'){
+            validar(input.value, regExpValidar[index], index)
+        }
     })
 })
 
@@ -85,7 +88,7 @@ formAlta.addEventListener('submit', e =>{
 
     //Enviamos los valores ingresados [producto] al array [productos] e imprimimos en el html las respuestas del formulario
     productos.push(producto)
-    renderProdsObjetos()
+
     renderProds()
 
 
@@ -95,19 +98,15 @@ formAlta.addEventListener('submit', e =>{
 })
 
 function renderProdsObjetos(){
-
-    //Para no manipular tanto el DOM, creamos una variable html, que vamos a rellenar con el for, y luego la agregamos al html (104)
     let html = ''
-    for(let i = 0 ; i < productos.length ; i++){
-        //html += `<p>${productos[i]}</p>` //output [object Object]
-        html += `<p>${JSON.stringify(productos[i])}</p>` //Convierte en string
+    for(let i=0; i<productos.length; i++) {
+        html += `<p>${JSON.stringify(productos[i])}</p>`
     }
     document.getElementById('listado-productos').innerHTML = html
-
 }
 
-function renderProdsTemplateString(){
-
+//Forma tradicional sin handlebars
+function renderProdsTemplateString() {
     let html = ''
 
     html += '<table>'
@@ -124,35 +123,48 @@ function renderProdsTemplateString(){
         </tr>
     `
 
-    for(let i = 0 ; i < productos.length ; i++){
+    for(let i=0; i<productos.length; i++) {
         let producto = productos[i]
-
+        
         html += `
         <tr>
-            <th>${producto.nombre}</th>
-            <th>${producto.precio}</th>
-            <th>${producto.stock}</th>
-            <th>${producto.marca}</th>
-            <th>${producto.categoria}</th>
-            <th>${producto.detalles}</th>
-            <th>${producto.foto}</th>
-            <th>${producto.envio}</th>
+            <td>${producto.nombre}</td>
+            <td>${producto.precio}</td>
+            <td>${producto.stock}</td>
+            <td>${producto.marca}</td>
+            <td>${producto.categoria}</td>
+            <td>${producto.detalles}</td>
+            <td>${producto.foto}</td>
+            <td>${producto.envio}</td>
         </tr>
         `
     }
+
     html += '</table>'
 
-    //el html acumulo todo y lo inyecta
     document.getElementById('listado-productos').innerHTML = html
-
 }
 
+//Creamos la tabla utilizando AJAX y handlebars
 function renderProds(){
 
-    // compile the template
-    var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
-    // execute the compiled template and print the output to the console
-    let html = template({ doesWhat: "rocks!" });
+    //Abrimos comunicacion asincronica
+    const xhr = new XMLHttpRequest
+    xhr.open('get', 'plantillas/listado.hbs')
+    xhr.addEventListener('load', () => {
+        if(xhr.status == 200) {
+            let plantillaHbs = xhr.response
+            console.log(plantillaHbs)
 
-    document.getElementById('listado-productos').innerHTML = html
+            var template = Handlebars.compile(plantillaHbs); //Le pasamos la respuesta de AJAX, el string en HBS
+            let html = template({ productos: productos });
+        
+            document.getElementById('listado-productos').innerHTML = html
+        }
+    })
+    xhr.send()
+
 }
+
+renderProds()
+*/

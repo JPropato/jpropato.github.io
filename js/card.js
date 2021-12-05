@@ -1,4 +1,4 @@
-var cards = [
+/*var cards = [
     new Card ('Samsung Galaxy S21+', '$150.000', 'img/productos/samsung-galaxy-s21-plus-5g.jpg'),
     new Card ('Samsung Galaxy J7', '$45.000', 'img/productos/celular-samsung.jpg'),
     new Card ('Motorola Moto E7', '$45.000', 'img/productos/motorola-moto-e7.jpg'),
@@ -22,7 +22,7 @@ var cards = [
     new Card ('Samsung Galaxy A12', '$15.000', 'img/productos/a12.jpg'),
 ]
 
-var elemCardsContainer = document.getElementsByClassName('cards-container')[0]
+var elemCardsContainer = document.getElementById('cards-container')
 
 function Card (header, price, image){
     this.header = header
@@ -46,7 +46,7 @@ function Card (header, price, image){
             // INICIO DE CHINO AVANZADO
             var nuevoItemCarrito = document.createElement('div')
             nuevoItemCarrito.classList.add('carrito__item')
-            nuevoItemCarrito.innerHTML = that.header /*THAT?*/
+            nuevoItemCarrito.innerHTML = that.header
             console.log(nuevoItemCarrito)
             
             // elemSectionCarrito: variable global
@@ -80,4 +80,4 @@ function Card (header, price, image){
 for (var unaCard of cards) {
     unaCard.appendTo(elemCardsContainer)
 }
-
+*/

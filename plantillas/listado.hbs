@@ -1,0 +1,33 @@
+{{#if productos.length }} {{!-- Va a inyectar el codigo HTML si productos.length = true --}}
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Marca</th>
+            <th>Categoria</th>
+            <th>Detalles</th>
+            <th>Foto</th>
+            <th>Envio</th>
+        </tr>
+        {{#each productos}} {{!-- 'for' en HBS, itera el array 'productos',
+    debajo va imprimiendo cada value de cada key de cada elemento del objeto (nombre,precio,etc)  --}}
+            <tr>
+                <td>{{nombre}}</td>
+                <td>{{precio}}</td>
+                <td>{{stock}}</td>
+                <td>{{marca}}</td>
+                <td>{{categoria}}</td>
+                <td>{{detalles}}</td>
+                <td>
+                    <img style="display:block; margin: 0 auto;" src="{{foto}}" width="50" alt="{{nombre}}"> 
+                </td>
+                {{#if envio}} {{!-- Condicional en handlebars, si envio es igual a true = Si--}}
+                    <td>Si</td>
+                {{else}} {{!-- Condicional en handlebars, si es igual a false = No --}}
+                    <td>No</td>
+                {{/if}}
+            </tr>
+        {{/each}}
+    </table>
+{{/if}}
