@@ -12,11 +12,17 @@ function start(){
         return xhr                          //afuera vamos a poder hacer el addeventlistener 'load'
     }
 
+    /*--------------------------------------------------*/
+    /*Creamos una funcion nos retorne la ruta al archivo*/
+    /*--------------------------------------------------*/
     function getNombreArchivo(id){
         return 'vistas/' + (id || 'inicio') + '.html'      // short circuit operator -- si ID no esta definido, ID = 'inicio
         //return 'plantillas/principales/' + (id? id : 'inicio') + '.html'      // operador ternario
     }
 
+    /*------------------------------------------------------------------*/
+    /*Creamos una funcion para marcar con CSS el link de la nav bar seleccionado*/
+    /*------------------------------------------------------------------*/
     function marcarLink(id){
         let links = document.querySelectorAll('.nav-bar__nav-link')
         links.forEach( link => {
@@ -25,6 +31,9 @@ function start(){
         })
     }
 
+    /*---------------------------------------------*/
+    /*Creamos una funcion para iniciar cada pagina */
+    /*---------------------------------------------*/
     function initJS(id) {
         if(id == 'alta') {
             initAlta()
@@ -40,6 +49,10 @@ function start(){
         }
     }
 
+
+    /*---------------------------------------------------------------------------------*/
+    /*Creamos una funcion para cargar cada plantilla de vistas e inyectarla en el main */
+    /*---------------------------------------------------------------------------------*/
     function cargarPlantilla(id){
         let archivo = getNombreArchivo(id)
         let xhr = ajax(archivo) 
@@ -59,16 +72,13 @@ function start(){
     /*Recupero las plantillas y las inyecto, al hacer click, recupero ID de cada link que coincide con el elemento html a inyectar*/
     /*----------------------------------------------------------------------------------------------------------------------------*/
     function cargarPlantillas (){
-        /*---------------------------------------------------------*/
         /*Carga inicial de la vista determinada por la url visitada*/
-        /*---------------------------------------------------------*/
         let id = location.hash.slice(1) || 'inicio'
         marcarLink(id)
         cargarPlantilla(id) 
 
-        /*-------------------------------------------------------------*/
+        
         /*Carga de cada uno de los contenidos segun la navegacion local*/
-        /*-------------------------------------------------------------*/
         let links = document.querySelectorAll('.nav-bar__nav-link')
         console.log(links)
 
@@ -82,9 +92,7 @@ function start(){
             })
         })
 
-        /*--------------------------------------------------*/
         /*Codigo a ejecutar cuando haya un cambio en el hash*/
-        /*--------------------------------------------------*/
         window.addEventListener('hashchange', () =>{ 
             //console.log('Cambió la url - hashchange')
     
