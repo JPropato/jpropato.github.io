@@ -1,13 +1,13 @@
 function initInicio() {
     console.warn('initInicio()')
 
-    var cards = [
+    let cards = [
         new Card ('Samsung Galaxy S21+', '$150.000', 'img/productos/samsung-galaxy-s21-plus-5g.jpg'),
         new Card ('Samsung Galaxy J7', '$45.000', 'img/productos/celular-samsung.jpg'),
         new Card ('Motorola Moto E7', '$45.000', 'img/productos/motorola-moto-e7.jpg'),
         new Card ('Apple Iphone 12', '$190.000', 'img/productos/apple-iphone-12.jpg'),
         new Card ('Apple Iphone 11 Pro', '$210.000', 'img/productos/apple-iphone-11-pro-max.jpg'),
-        new Card ('Samsung Galaxy S20 FE', '$69.000', 'img/productos/s20\ fe.jpg'),
+        new Card ('Samsung Galaxy S20 FE', '$69.000', 'img/productos/s20-fe.jpg'),
         new Card ('Motorola G60s', '$49.000', 'img/productos/g60s.jpg'),
         new Card ('Samsung Galaxy A32', '$26.000', 'img/productos/a32.jpg'),
         new Card ('Samsung Galaxy A72', '$78.000', 'img/productos/a72.jpg'),
@@ -25,7 +25,7 @@ function initInicio() {
         new Card ('Samsung Galaxy A12', '$15.000', 'img/productos/a12.jpg'),
     ]
 
-    const elemCardsContainer = document.querySelector('.cards-container')
+    const elemCardsContainer = document.querySelector('.container')
 
     function Card (header, price, image){
         this.header = header
@@ -33,9 +33,8 @@ function initInicio() {
         this.image = image
 
         this.appendTo = function (destinationElement){
-            var card = document.createElement('a')
-            card.classList.add('card')
-            card.href = '#'
+            let card = document.createElement('div')
+            card.classList.add('cards-container')
 
             // "TRUQUITO" para el event listener
             var that = this
@@ -57,27 +56,27 @@ function initInicio() {
                 // FIN DE CHINO AVANZADO
             })
 
-            card.innerHTML = 
-            `<article class="card__article">
-                <div
-                    class="card__image"
-                    style="background-image: url(${image})"
-                >
-                </div>
-                
-                <div class="card__content">
-                    <h3 class="card__heading">${header}</h3>
-                    <div class="card__description">
-                        <p class="card__description--price">${price}</p>
-                        <button class="card__description--cart">Agregar al carrito</button>
-                        <button class="card__description--cart">Agregar al carrito</button>
-                    </div>
-                </div>
-            </article>`
-            
-            destinationElement.appendChild(card)
-        }    
+            /*Creamos la card utilizando AJAX y handlebars*/
+            const xhr = new XMLHttpRequest
+            xhr.open('get', 'plantillas/card.hbs')
+            xhr.addEventListener('load', () => {
+                if(xhr.status == 200) {
 
+                    let cardHbs = xhr.response
+                    //console.log(cardHbs)
+                    
+                    var template = Handlebars.compile(cardHbs); /*Le pasamos la respuesta de AJAX, el string en HBS*/
+                    let html = template ({cards : cards})
+                    card.innerHTML = html
+                    
+                    destinationElement.appendChild(card)
+                }
+            })
+            xhr.send()
+            
+            renderCards()
+        }    
+                
     }
 
     for (var unaCard of cards) {

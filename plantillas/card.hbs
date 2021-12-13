@@ -1,0 +1,20 @@
+{{#if cards.length }}
+    {{#each cards}}
+        <a class="card" href="#">
+            <article class="card__article">
+                <div
+                    class="card__image"
+                    style="background-image: url({{image}})"
+                >
+                </div>
+                <div class="card__content">
+                    <h3 class="card__heading">{{header}}</h3> 
+                    <div class="card__description">
+                        <p class="card__description--price">{{price}}</p>
+                        <button class="card__description--cart">Agregar al carrito</button>
+                    </div>
+                </div>
+            </article>
+        </a>
+    {{/each}}
+{{/if}}

@@ -65,7 +65,6 @@ body {
 body {
   margin: auto;
   box-sizing: border-box;
-  min-height: 100vh;
 }
 
 main {
@@ -596,20 +595,31 @@ FORMULARIO DE CONTACTO
   border: 2px solid red;
 }
 
-.container-alta {
-  padding: 10px;
+.alta-main {
+  display: flex;
+  flex-wrap: wrap;
 }
-.container-alta h1 {
+.alta-main .form__alta {
+  border: 2px solid red;
+  width: 25%;
+}
+.alta-main .form__alta .container-alta {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.alta-main .form__alta .container-alta h1 {
   color: blue;
 }
-.container-alta div, .container-alta input {
+.alta-main .form__alta .container-alta div, .alta-main .form__alta .container-alta input {
   width: 300px;
   display: block;
   margin-bottom: 1px;
   padding: 5px;
 }
-.container-alta button {
-  display: inline-block;
+.alta-main .form__alta .container-alta button {
+  display: block;
   margin-top: 20px;
   width: 120px;
   height: 35px;
@@ -617,13 +627,13 @@ FORMULARIO DE CONTACTO
   font-weight: bold;
   margin-bottom: 15px;
 }
-.container-alta input[type=checkbox] {
+.alta-main .form__alta .container-alta input[type=checkbox] {
   display: inline;
   width: 15px;
   height: 15px;
   margin-top: 10px;
 }
-.container-alta div {
+.alta-main .form__alta .container-alta div {
   border: 1px solid red;
   background-color: yellow;
   color: darkred;
@@ -631,21 +641,39 @@ FORMULARIO DE CONTACTO
   border-radius: 5px;
   display: none;
 }
-
-table, th, td {
+.alta-main .alta-image {
+  border: 2px solid red;
+  width: 75%;
+}
+.alta-main .render-productos {
+  border: 2px solid red;
+  width: 100%;
+}
+.alta-main .render-productos table, .alta-main .render-productos th, .alta-main .render-productos td {
   border: 1px solid black;
   border-collapse: collapse;
 }
-
-table {
+.alta-main .render-productos table {
   width: 90%;
 }
-
-#listado-productos {
+.alta-main .render-productos #listado-productos {
   width: 100%;
 }
-
-th, td {
+.alta-main .render-productos th, .alta-main .render-productos td {
+  padding: 5px;
+  text-align: center;
+}
+.alta-main .render-productos table, .alta-main .render-productos th, .alta-main .render-productos td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.alta-main .render-productos table {
+  width: 90%;
+}
+.alta-main .render-productos #listado-productos {
+  width: 100%;
+}
+.alta-main .render-productos th, .alta-main .render-productos td {
   padding: 5px;
   text-align: center;
 }
@@ -908,7 +936,6 @@ SEARCH BAR
 footer {
   width: 100%;
   background: #d7ebf9;
-  margin-top: 65vh;
 }
 
 .footer__content {

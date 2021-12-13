@@ -108,7 +108,7 @@ function initAlta (){
         xhr.addEventListener('load', () => {
             if(xhr.status == 200) {
                 let plantillaHbs = xhr.response
-                console.log(plantillaHbs)
+                //console.log(plantillaHbs)
                 
                 var template = Handlebars.compile(plantillaHbs); /*Le pasamos la respuesta de AJAX, el string en HBS*/
                 let html = template({ productos: productos });

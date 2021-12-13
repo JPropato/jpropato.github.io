@@ -1,59 +1,106 @@
-.container-alta {
-    padding: 10px;
+.alta-main{
+    display: flex;
+    flex-wrap: wrap;
 
-        h1 {
-            color: blue;
+        .form__alta { 
+                border: 2px solid red;
+                width: 25%;
+
+                    .container-alta {
+                        padding: 10px;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+
+                            h1 {
+                                color: blue;
+                            }
+
+                            div, input {
+                                width: 300px;
+                                display: block;
+                                margin-bottom: 1px;
+                                padding: 5px;
+                            }
+
+                            button {
+                                display: block;
+                                margin-top: 20px;
+                                width: 120px;
+                                height: 35px;
+                                font-size: 1.1em;
+                                font-weight: bold;
+                                margin-bottom: 15px;
+                            }
+                            
+                            input[type="checkbox"] {
+                                display: inline;
+                                width: 15px;
+                                height: 15px;
+                                margin-top: 10px;
+                            }
+
+                            div {
+                                border: 1px solid red;
+                                background-color: yellow;
+                                color: darkred;
+                                margin: 2px 0 10px 0;
+                                border-radius: 5px;
+                                display: none;        
+                            }
+
+                    }
+
+        }
+                
+        .alta-image{
+            border: 2px solid red;
+            width: 75%;
+                img{
+
+                }
         }
 
-        div, input {
-            width: 300px;
-            display: block;
-            margin-bottom: 1px;
-            padding: 5px;
-        }
+        .render-productos{
+            border: 2px solid red;
+            width: 100%;
+            
+                table,th,td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+                
+                table {
+                    width: 90%;
+                }
+                
+                #listado-productos {
+                    width: 100%;
+                }
+                
+                th,td {
+                    padding: 5px;
+                    text-align: center;
+                }
 
-        button {
-            display: inline-block;
-            margin-top: 20px;
-            width: 120px;
-            height: 35px;
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+
         
-        input[type="checkbox"] {
-            display: inline;
-            width: 15px;
-            height: 15px;
-            margin-top: 10px;
+                table,th,td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                }
+                
+                table {
+                    width: 90%;
+                }
+                
+                #listado-productos {
+                    width: 100%;
+                }
+                
+                th,td {
+                    padding: 5px;
+                    text-align: center;
+                }
         }
-
-        div {
-            border: 1px solid red;
-            background-color: yellow;
-            color: darkred;
-            margin: 2px 0 10px 0;
-            border-radius: 5px;
-            display: none;        
-        }
-
 }
-    
-    table,th,td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-    
-    table {
-        width: 90%;
-    }
-    
-    #listado-productos {
-        width: 100%;
-    }
-    
-    th,td {
-        padding: 5px;
-        text-align: center;
-    }
