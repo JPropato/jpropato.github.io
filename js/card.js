@@ -74,7 +74,7 @@ function initInicio() {
             })
             xhr.send()
             
-            renderCards()
+            //renderCards()
         }    
                 
     }
