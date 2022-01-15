@@ -1,4 +1,9 @@
-{{#if productos.length }} {{!-- Va a inyectar el codigo HTML si productos.length = true --}}
+{{!-- {{#if validos}}
+    <td>Datos Válidos</td>
+{{else}}
+    <td>Datos NO Válidos</td>
+{{/if}} --}}
+{{#if productos.length }}
     <table>
         <tr>
             <th>Nombre</th>
@@ -9,9 +14,9 @@
             <th>Detalles</th>
             <th>Foto</th>
             <th>Envio</th>
+            <th>Acción</th>
         </tr>
-        {{#each productos}} {{!-- 'for' en HBS, itera el array 'productos',
-    debajo va imprimiendo cada value de cada key de cada elemento del objeto (nombre,precio,etc)  --}}
+        {{#each productos}}
             <tr>
                 <td>{{nombre}}</td>
                 <td>{{precio}}</td>
@@ -22,12 +27,22 @@
                 <td>
                     <img style="display:block; margin: 0 auto;" src="{{foto}}" width="50" alt="{{nombre}}"> 
                 </td>
-                {{#if envio}} {{!-- Condicional en handlebars, si envio es igual a true = Si--}}
+                {{#if envio}}
                     <td>Si</td>
-                {{else}} {{!-- Condicional en handlebars, si es igual a false = No --}}
+                {{else}}
                     <td>No</td>
                 {{/if}}
+                <td>
+                    {{#if ../validos}}
+                        {{!-- <button onclick="productoController.actualizarProducto({{id}})">Actualizar</button> --}}
+                    {{else}}
+                        {{!-- <button disabled onclick="productoController.actualizarProducto({{id}})">Actualizar</button> --}}
+                    {{/if}}
+                    {{!-- <button onclick="productoController.borrarProducto({{id}})">Borrar</button> --}}
+                </td>
             </tr>
         {{/each}}
     </table>
+{{else}}
+    <h2>No se encontraron productos</h2>
 {{/if}}
