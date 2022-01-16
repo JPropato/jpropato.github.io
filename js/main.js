@@ -1,40 +1,21 @@
-var elemSectionCarrito = document.getElementsByClassName('section-carrito')[0]
-
-function start(){
-    /*-------------------------------------------------------------------------------------------------------------*/
-    /*Creamos una funcion que va a iniciar una comunicación asincronica con el servidor, para obtener una plantilla*/
-    /*-------------------------------------------------------------------------------------------------------------*/
-    function ajax (url, metodo ){     //metodo='get' = aseguramos que el metodo sea GET cuando no definan el metodo al llamar la funcion
-        let xhr = new XMLHttpRequest
-        xhr.open(metodo || 'get', url)
-        xhr.send()
-
-        return xhr                          //afuera vamos a poder hacer el addeventlistener 'load'
+class Main{
+    async ajax(url, metodo='get') {
+        return await fetch(url, { method: metodo }).then(r => r.text())
     }
 
-    /*--------------------------------------------------*/
-    /*Creamos una funcion nos retorne la ruta al archivo*/
-    /*--------------------------------------------------*/
-    function getNombreArchivo(id){
-        return 'vistas/' + (id || 'inicio') + '.html'      // short circuit operator -- si ID no esta definido, ID = 'inicio
-        //return 'plantillas/principales/' + (id? id : 'inicio') + '.html'      // operador ternario
+    getNombreArchivo(id) { /*Creamos una funcion nos retorne la ruta al archivo*/
+        return 'vistas/' + id + '.html'
     }
 
-    /*------------------------------------------------------------------*/
-    /*Creamos una funcion para marcar con CSS el link de la nav bar seleccionado*/
-    /*------------------------------------------------------------------*/
-    function marcarLink(id){
+    marcarLink(id) {
         let links = document.querySelectorAll('.nav-bar__nav-link')
         links.forEach( link => {
-            if (link.id == id ){ link.classList.add('selected')}
-            else{ link.classList.remove('selected')}
+            if (link.id == id ) link.classList.add('selected')
+            else link.classList.remove('selected')
         })
     }
 
-    /*---------------------------------------------*/
-    /*Creamos una funcion para iniciar cada pagina */
-    /*---------------------------------------------*/
-    function initJS(id) {
+    initJS(id) { /*Creamos una funcion para iniciar cada pagina */
         if(id == 'alta') {
             initAlta()
         }
@@ -49,38 +30,28 @@ function start(){
         }
     }
 
+    async cargarPlantilla(id){ /*Creamos una funcion para cargar cada plantilla de vistas e inyectarla en el main */
+        let archivo = this.getNombreArchivo(id)
 
-    /*---------------------------------------------------------------------------------*/
-    /*Creamos una funcion para cargar cada plantilla de vistas e inyectarla en el main */
-    /*---------------------------------------------------------------------------------*/
-    function cargarPlantilla(id){
-        let archivo = getNombreArchivo(id)
-        let xhr = ajax(archivo) 
-        xhr.addEventListener('load', () => {
-            let plantilla = xhr.response 
-            
-            // Carga del código de vista (HTML) de la plantilla
-            let main = document.querySelector('main')
-            main.innerHTML = plantilla //SE INYECTA PLANTILLA EN EL MAIN
+        let plantilla = await this.ajax(archivo) 
+        // Carga del código de vista (HTML) de la plantilla
+        let main = document.querySelector('main')
+        main.innerHTML = plantilla //SE INYECTA PLANTILLA EN EL MAIN
 
-            // Carga del código script (JS) de la plantilla
-            initJS(id)
-        })
+        // Carga del código script (JS) de la plantilla
+        this.initJS(id)
     }
 
-    /*----------------------------------------------------------------------------------------------------------------------------*/
-    /*Recupero las plantillas y las inyecto, al hacer click, recupero ID de cada link que coincide con el elemento html a inyectar*/
-    /*----------------------------------------------------------------------------------------------------------------------------*/
-    function cargarPlantillas (){
+    async cargarPlantillas (){
         /*Carga inicial de la vista determinada por la url visitada*/
         let id = location.hash.slice(1) || 'inicio'
-        marcarLink(id)
-        cargarPlantilla(id) 
+        this.marcarLink(id)
+        await this.cargarPlantilla(id) 
 
-        
+
         /*Carga de cada uno de los contenidos segun la navegacion local*/
         let links = document.querySelectorAll('.nav-bar__nav-link')
-        console.log(links)
+        //console.log(links)
 
         links.forEach( link => {
             link.addEventListener('click', e => {                        //Evento a ejecutar cada vez que le hagamos click a cada link
@@ -93,19 +64,19 @@ function start(){
         })
 
         /*Codigo a ejecutar cuando haya un cambio en el hash*/
-        window.addEventListener('hashchange', () =>{ 
+        window.addEventListener('hashchange', async () =>{ 
             //console.log('Cambió la url - hashchange')
-    
-            /*Recupero el id para usar mas tarde, pero en este caso utilizando el metodo de string .slice()*/
-            let id = location.hash.slice(1) 
-            marcarLink(id)
-            
-            /* Pido un recurso mediante ajax, llamando a la funcion para simplificar codigo*/
-            cargarPlantilla(id)
+
+            let id = location.hash.slice(1) || 'inicio'
+            this.marcarLink(id)
+            await this.cargarPlantilla(id)
         })
     }
 
-    cargarPlantillas()
+    async start() {
+        await this.cargarPlantillas()
+    }
 }
 
-start()
+const main = new Main()
+main.start()
