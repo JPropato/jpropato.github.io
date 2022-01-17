@@ -7,6 +7,10 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/icon/icon.ico">
+    <!--==Import-Font-Family======================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -14,42 +18,61 @@
         <input type="checkbox" id="menu">
 
         <nav class="nav-bar">
+
+            <a href="index.html" class="nav-bar__logo">
+                <span>C</span>onnecticus
+            </a>
+
             <ul class="nav-bar__nav-list">
-                <li class="nav-bar__nav-item">
-                    <a class="nav-bar__nav-link" href="" id="inicio">Inicio</a>
-                </li>
-                <li class="nav-bar__nav-item">
-                    <a class="nav-bar__nav-link" href="" id="alta">Alta</a>
-                </li>
-                <li class="nav-bar__nav-item">
-                    <a class="nav-bar__nav-link" href="" id="contacto">Contacto</a>
-                </li>
-                <li class="nav-bar__nav-item">
-                    <a class="nav-bar__nav-link" href="" id="nosotros">Nosotros</a>
+                <li><a class="nav-bar__nav-link" href="" id="inicio">Inicio</a></li>
+                <li><a class="nav-bar__nav-link" href="" id="alta">Alta</a></li>
+                <li><a class="nav-bar__nav-link" href="" id="contacto">Contacto</a></li>
+                <li> <a class="nav-bar__nav-link" href="" id="nosotros">Nosotros</a>
                 </li>
             </ul>
-        </nav>
-        <div class="search-bar">
-            <div class="search-bar__logo-container">
-                <a href="index.html"> <img class="search-bar__logo-container--logo" src="img/logo/logo-w.png" alt=""> </a>
+
+                <!--right-nav-(cart-like)-->
+            <div class="nav-bar__right-nav">
+                <!--like----->
+                <a href="#" class="nav-bar__right-nav--like">
+                    <i class="far fa-heart"></i>
+                    <span>0</span>
+                </a>
+
+                <!--cart----->
+                <a href="#" class="nav-bar__right-nav--cart search-bar__carrito-container">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>0</span>
+                </a>
             </div>
-            <form class="search-bar__form-container">
-                <label class="search-bar__form-label" for="busqueda"></label>
-                <input class="search-bar__form-search" id="busqueda" type="search">
-                <input class="search-bar__form-submit" type="submit" value="Buscar">
-            </form>
+
             <div class="search-bar__carrito-container">
                 <a href="#"></a>
             </div>
-            <div class="menu-toggle">
-                <label class="menu-toggle__label" for="menu">
-                    <span class="menu-toggle__pan-arriba"></span>
-                    <span class="menu-toggle__medallon"></span>
-                    <span class="menu-toggle__pan-abajo"></span>
-                </label>
+        </nav>
+
+
+        <section id="search-banner">
+            <!--bg--------->
+            <!-- <img alt="bg" class="bg-1" src="img/images/bg-1.png"> -->
+            <!-- <img alt="bg-2" class="bg-2" src="img/images/bg-2.png"> -->
+            <!--text------->
+            <div class="search-banner-text">
+                <!-- <h1>Order Your daily Groceries</h1> -->
+                <!-- <strong>#Free Delivery</strong> -->
+                <!--search-box------>
+                <form action="" class="search-box">
+                    <!--icon------>
+                    <i class="fas fa-search"></i>
+                    <!--input----->
+                    <input type="text" class="search-input" placeholder="Busca tus productos aqui" name="search" required>
+                    <!--btn------->
+                    <input type="submit" class="search-btn" value="Search">
+                </form>
             </div>
-        </div>
+        </section>
     </header>
+
 
     <div class="section-carrito"></div>
 
@@ -59,25 +82,45 @@
     <footer>
             <div class="footer__content">
                 <div class="footer__content--logo">
-                    <img src="img/logo/logo-b-b-b.png" alt="">
+                    <a href="#"><span>C</span>onnecticus</a>
                 </div>
-                <div class="footer__content--follow-us">
-                    <section class="social--media">
-                        <h3>Encontranos en las redes</h3>
-                        <div class="social--media__button">
-                            <a class="social--media__button__item facebook" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a class="social--media__button__item twitter" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                            <a class="social--media__button__item linkedin" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a class="social--media__button__item youtube" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-                            <a class="social--media__button__item instagram" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        </div>
-                        
-                    </section>
+                <section class="footer__content--social">
+                        <a class=""  href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class=""  href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a class="" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a class=""  href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </section>
                 </div>
-                <div class="footer__content--copyright">
-                    <p>Copyright® Connecticus Inc LTD - All rights reserved</p>
+
+                <!--links------------------------->
+                <div class="footer__content--links">
+                    <strong>Product</strong>
+                    <ul>
+                        <li><a href="#">Clothes</a></li>
+                        <li><a href="#">Packages</a></li>
+                        <li><a href="#">Popular</a></li>
+                        <li><a href="#">New</a></li>
+                    </ul>
                 </div>
-            </div>
+                <!--links------------------------->
+                <div class="footer__content--links">
+                    <strong>Category</strong>
+                    <ul>
+                        <li><a href="#">Beauty</a></li>
+                        <li><a href="#">Meats</a></li>
+                        <li><a href="#">Kids</a></li>
+                        <li><a href="#">Clothes</a></li>
+                    </ul>
+                </div>
+                <!--links-------------------------->
+                <div class="footer__content--links">
+                    <strong>Contact</strong>
+                    <ul>
+                        <li><a href="#">Phone : +123456789</a></li>
+                        <li><a href="#">Email : Example@gmail.com</a></li>
+                    </ul>
+                </div>
     </footer>
 
     <!-- Código de librerías -->
