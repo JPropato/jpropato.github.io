@@ -3,7 +3,7 @@
     <div class="product-box">
         <img alt="" src="{{foto}}">
         <strong>{{nombre}}</strong>
-        <span class="quantity">1 KG</span>
+        <span class="quantity">{{stock}}</span> {{!-- UNIDAD DE VENTA --}}
         <span class="price">${{precio}}</span>
         <!--cart-btn------->
         <a href="#" class="cart-btn" onclick="agregarCarrito(event,{{id}},this)">
@@ -18,3 +18,4 @@
 {{else}}
     <div></div>
 {{/if}}
+

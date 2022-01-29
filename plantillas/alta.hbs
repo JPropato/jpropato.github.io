@@ -4,8 +4,8 @@
     <td>Datos NO Válidos</td>
 {{/if}} --}}
 {{#if productos.length }}
-    <table>
-        <tr>
+    <table class="table">
+        <thead>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Stock</th>
@@ -15,16 +15,16 @@
             <th>Foto</th>
             <th>Envio</th>
             <th>Acción</th>
-        </tr>
+        </thead>
         {{#each productos}}
             <tr>
-                <td>{{nombre}}</td>
-                <td>{{precio}}</td>
-                <td>{{stock}}</td>
-                <td>{{marca}}</td>
-                <td>{{categoria}}</td>
-                <td>{{detalles}}</td>
-                <td>
+                <td class="data-label">{{nombre}}</td>
+                <td class="data-label">{{precio}}</td>
+                <td class="data-label">{{stock}}</td>
+                <td class="data-label">{{marca}}</td>
+                <td class="data-label">{{categoria}}</td>
+                <td class="data-label">{{detalles}}</td>
+                <td class="data-label">
                     <img style="display:block; margin: 0 auto;" src="{{foto}}" width="50" alt="{{nombre}}"> 
                 </td>
                 {{#if envio}}

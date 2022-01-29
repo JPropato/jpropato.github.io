@@ -3,7 +3,7 @@ async function renderPlantillaListado(listado){
     let plantillaHbs = await fetch('plantillas/inicio.hbs').then(r => r.text())
     var template = Handlebars.compile(plantillaHbs)
     let html = template({listado})
-    document.getElementById('container-cards-card').innerHTML = html
+    document.getElementById('container-cards-card-all').innerHTML += html
 }
 
 function agregarCarrito(e, id, ref){

@@ -7,6 +7,7 @@
     <title>Inicio</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="icon" href="img/icon/icon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--==Import-Font-Family======================-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +24,14 @@
                 <span>C</span>onnecticus
             </a>
 
-            <ul class="nav-bar__nav-list">
+            <!-- menu-btn -->
+            <input type="checkbox" class="menu-btn" id="menu-btn">
+            <label for="menu-btn" class="menu-icon">
+                <span class="nav-icon"></span>
+            </label>
+
+            <!-- menu -->
+            <ul class="nav-bar__nav-list"> 
                 <li><a class="nav-bar__nav-link" href="" id="inicio">Inicio</a></li>
                 <li><a class="nav-bar__nav-link" href="" id="alta">Alta</a></li>
                 <li><a class="nav-bar__nav-link" href="" id="contacto">Contacto</a></li>
@@ -52,14 +60,14 @@
         </nav>
 
 
-        <section id="search-banner">
+        <section id="search-banner" class="search-banner">
             <!--bg--------->
-            <!-- <img alt="bg" class="bg-1" src="img/images/bg-1.png"> -->
-            <!-- <img alt="bg-2" class="bg-2" src="img/images/bg-2.png"> -->
+           <!--  <img alt="bg" class="bg-1" src="img/images/bg-1.png">
+            <img alt="bg-2" class="bg-2" src="img/images/bg-2.png"> -->
             <!--text------->
             <div class="search-banner-text">
-                <!-- <h1>Order Your daily Groceries</h1> -->
-                <!-- <strong>#Free Delivery</strong> -->
+               <!--  <h1>Encuentre aquí los mejores productos</h1>
+                <strong>Envio sin cargo</strong> -->
                 <!--search-box------>
                 <form action="" class="search-box">
                     <!--icon------>
@@ -83,42 +91,31 @@
             <div class="footer__content">
                 <div class="footer__content--logo">
                     <a href="#"><span>C</span>onnecticus</a>
-                </div>
-                <section class="footer__content--social">
+                    <section class="footer__content--logo--social">
                         <a class=""  href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a class="" href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
                         <a class=""  href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         <a class="" href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
                         <a class=""  href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                </section>
+                    </section>
                 </div>
 
                 <!--links------------------------->
                 <div class="footer__content--links">
-                    <strong>Product</strong>
+                    <strong>Productos</strong>
                     <ul>
-                        <li><a href="#">Clothes</a></li>
-                        <li><a href="#">Packages</a></li>
-                        <li><a href="#">Popular</a></li>
-                        <li><a href="#">New</a></li>
-                    </ul>
-                </div>
-                <!--links------------------------->
-                <div class="footer__content--links">
-                    <strong>Category</strong>
-                    <ul>
-                        <li><a href="#">Beauty</a></li>
-                        <li><a href="#">Meats</a></li>
-                        <li><a href="#">Kids</a></li>
-                        <li><a href="#">Clothes</a></li>
+                        <li><a href="#">Frutas</a></li>
+                        <li><a href="#">Verduras</a></li>
+                        <li><a href="#">Combos</a></li>
+                        <li><a href="#">Nuevo</a></li>
                     </ul>
                 </div>
                 <!--links-------------------------->
                 <div class="footer__content--links">
-                    <strong>Contact</strong>
+                    <strong>Contacto</strong>
                     <ul>
-                        <li><a href="#">Phone : +123456789</a></li>
-                        <li><a href="#">Email : Example@gmail.com</a></li>
+                        <li><a href="#">TEL : +56911655489</a></li>
+                        <li><a href="#">Email : info@connecticus.com</a></li>
                     </ul>
                 </div>
     </footer>

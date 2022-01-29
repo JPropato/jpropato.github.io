@@ -43,6 +43,8 @@ class CarritoController extends CarritoModel {
     }
 
     async enviarCarrito(){
+        var elemSectionCarrito = document.getElementsByClassName('section-carrito')[0]
+
         elemSectionCarrito.innerHTML = '<h2>Enviando Carrito</h2>'
         await carritoService.guardarCarritoService(this.carrito) //Enviamos carrito a la nube.
         this.carrito = [] //vaciamos el carrito
