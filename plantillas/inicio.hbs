@@ -1,21 +1,21 @@
 {{#if listado.length }}
     {{#each listado}}
     <div class="product-box">
-        <img alt="" src="{{foto}}">
-        <strong>{{nombre}}</strong>
-        <span class="quantity">{{stock}}</span> {{!-- UNIDAD DE VENTA --}}
-        <span class="price">${{precio}}</span>
-        <!--cart-btn------->
-        <a href="#" class="cart-btn" onclick="agregarCarrito(event,{{id}},this)">
-            <i class="fas fa-shopping-bag"></i> Add Cart
-        </a>
-        <!--like-btn------->
         <a href="#" class="like-btn">
             <i class="far fa-heart"></i>
+        </a>
+        <img alt="{{nombre}}" src="{{foto}}">
+        <strong>{{nombre}}</strong>
+        <span class="quantity">Stock: {{stock}} unidades</span>
+        <span class="price">${{precio}}</span>
+        <a href="#" class="cart-btn" onclick="agregarCarrito(event,'{{id}}',this)">
+            <i class="fas fa-shopping-bag"></i> Agregar al carrito
         </a>
     </div>
     {{/each}}
 {{else}}
-    <div></div>
+    <div style="text-align:center; padding:40px; color:#999;">
+        <i class="fas fa-box-open" style="font-size:2rem; margin-bottom:10px;"></i>
+        <p>No hay productos disponibles</p>
+    </div>
 {{/if}}
-

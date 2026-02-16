@@ -1,36 +1,43 @@
- {{#if carrito.length }}  {{!-- Linea 8 de CarritoController.carrito --}}
-    <button class="btn__enviarCarrito" onclick="carritoController.enviarCarrito()">Enviar</button>
+{{#if carrito.length }}
+    <button class="btn__enviarCarrito" onclick="carritoController.enviarCarrito()">
+        <i class="fas fa-paper-plane" style="margin-right:8px;"></i> Enviar pedido
+    </button>
     <table>
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Marca</th>
-            <th>Foto</th>
-            <th>Cantidad</th>
-            <th>Envio</th>
-            <th>Acción</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Marca</th>
+                <th>Foto</th>
+                <th>Cantidad</th>
+                <th>Envio</th>
+                <th>Accion</th>
+            </tr>
+        </thead>
+        <tbody>
         {{#each carrito}}
             <tr>
                 <td>{{nombre}}</td>
-                <td>{{precio}}</td>
+                <td>${{precio}}</td>
                 <td>{{marca}}</td>
                 <td>
-                    <img style="display:block; margin: 0 auto;" src="{{foto}}" width="50" alt="{{nombre}}"> 
+                    <img style="display:block; margin: 0 auto;" src="{{foto}}" width="45" alt="{{nombre}}">
                 </td>
                 <td>{{cantidad}}</td>
-
                 {{#if envio}}
-                    <td>Si</td>
+                    <td><i class="fas fa-check" style="color:#4eb060;"></i> Si</td>
                 {{else}}
-                    <td>No</td>
+                    <td><i class="fas fa-times" style="color:#ccc;"></i> No</td>
                 {{/if}}
                 <td>
-                    <button onclick="carritoController.borrarProductoCarrito({{id}})">Borrar</button>
+                    <button onclick="carritoController.borrarProductoCarrito('{{id}}')">
+                        <i class="fas fa-trash-alt" style="margin-right:4px;"></i> Borrar
+                    </button>
                 </td>
             </tr>
         {{/each}}
+        </tbody>
     </table>
 {{else}}
-    <h2>El carrito está vacío</h2>
+    <h2><i class="fas fa-shopping-cart" style="margin-right:10px; opacity:0.3;"></i>El carrito esta vacio</h2>
 {{/if}}
