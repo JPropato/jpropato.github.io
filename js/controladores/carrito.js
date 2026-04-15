@@ -50,7 +50,7 @@ class CarritoController extends CarritoModel {
         this.carrito = [] //vaciamos el carrito
         localStorage.setItem('carrito', this.carrito)
 
-        elemSectionCarrito.inner = '<h2>Enviando Carrito.... <b>OK</b></h2>'
+        elemSectionCarrito.innerHTML = '<h2>Enviando Carrito.... <b>OK</b></h2>'
 
         setTimeout(()=>{
             elemSectionCarrito.classList.remove('section-carrito--visible')

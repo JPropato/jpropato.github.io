@@ -1,10 +1,23 @@
+class CarritoService {
 
-class CarritoService{
-    URL_CARRITO = 'https://61b7cf4564e4a10017d18cbf.mockapi.io/carrito/'
+    STORAGE_KEY = 'mock_pedidos'
 
-    async guardarCarritoService(carrito){
-        let carritoGuardado = await http.post(this.URL_CARRITO, carrito)
-        return carritoGuardado
+    async guardarCarritoService(carrito) {
+        await new Promise(r => setTimeout(r, 500))
+
+        // Guarda el pedido en localStorage
+        let pedidos = JSON.parse(localStorage.getItem(this.STORAGE_KEY) || '[]')
+        let pedido = {
+            id: Date.now().toString(),
+            fecha: new Date().toLocaleString('es-AR'),
+            items: carrito,
+            total: carrito.reduce((sum, item) => sum + (item.precio * item.cantidad), 0)
+        }
+        pedidos.push(pedido)
+        localStorage.setItem(this.STORAGE_KEY, JSON.stringify(pedidos))
+
+        console.log('Pedido guardado:', pedido)
+        return pedido
     }
 }
 
